@@ -9,12 +9,7 @@ var FindProxyForURL = function(init, profiles) {
         return result;
     };
 }("+auto switch", {
-    "+auto switch": function(url, host, scheme) {
-        "use strict";
-        if (/^internal\.example\.com$/.test(host)) return "DIRECT";
-        if (/(?:^|\.)example\.com$/.test(host)) return "+proxy";
-        return "+__ruleListOf_auto switch";
-    },
+    "+auto switch": "+__ruleListOf_auto switch",
     "+__ruleListOf_auto switch": function(url, host, scheme) {
         "use strict";
         if (/^GFWList with EVERYTHING included$/.test(host)) return "DIRECT";
@@ -7206,6 +7201,6 @@ var FindProxyForURL = function(init, profiles) {
     "+proxy": function(url, host, scheme) {
         "use strict";
         if (/^127\.0\.0\.1$/.test(host) || /^::1$/.test(host) || /^localhost$/.test(host)) return "DIRECT";
-        return "SOCKS5 daili.pkuml.org:3331; SOCKS daili.pkuml.org:3331";
+        return "PROXY daili.pkuml.org:3332";
     }
 });
